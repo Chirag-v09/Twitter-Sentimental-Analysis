@@ -4,3 +4,7 @@ The dataset which I used is not much good so the prediction is not good, hence y
 
 You can find the dataset in dataset repository 
 Dataset Name :- "train tweet dataset.csv"
+
+
+Here's the view of GUI using Tkinter in python.
+![](gui%20pic.JPG)
