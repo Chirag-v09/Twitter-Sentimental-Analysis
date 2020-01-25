@@ -7,4 +7,4 @@ Dataset Name :- "train tweet dataset.csv"
 
 
 Here's the view of GUI using Tkinter in python.
-![](gui%20pic.JPG)
+![](gui 20pic.JPG)
