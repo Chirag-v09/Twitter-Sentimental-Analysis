@@ -1,0 +1,70 @@
+<head>
+    <h1> Enter Details :- </h1>
+    <h2> User Login :- </h2>
+
+    <script type="text/javascript">
+        function fn1()
+        {
+            var length = "{{length}}";
+            var Users = [];
+            var i = 0;
+            {% for user in Users %}
+                Users[i] = "{{user}}";
+                i = i+1;
+            {% endfor %}
+
+            var Passwords = [];
+            i = 0
+            {% for password in Passwords %}
+                Passwords[i] = "{{password}}";
+                i = i+1;
+            {% endfor %}
+
+            url = "/sentiment_error";
+            var str1 = document.getElementById("text1").value;
+            var str2 = document.getElementById("text2").value;
+            var cmp1, cmp2;
+
+            if (str1 === "ID")
+            {
+             url = "/sentiment_error";
+             location.replace(url);
+            }
+
+            for (i = 0; i < length; i++)
+            {
+               cmp1 = str1.localeCompare(Users[i]);
+               cmp2 = str2.localeCompare(Passwords[i]);
+
+               if (cmp1 == 0 && cmp2 == 0)
+               {
+                url = "/sentiment";
+               }
+            }
+            location.replace(url);
+        }
+
+        function fn2()
+        {
+          url = '/register'
+          location.replace(url)
+        }
+    </script>
+
+</head>
+<body>
+
+<label for="text1"> ID:- </label>
+<input id="text1" placeholder="Login ID">
+<br>
+<br>
+<label for="text2"> Password:-</label>
+<input id="text2" placeholder="Password">
+<br>
+<br>
+<strong><font color="red"> Please Enter correct ID or Password </font></strong><br>
+<button onclick="fn1()" id="btn1"> Submit </button><br><br><br>
+
+<strong>New User Register here below.</strong><br>
+<button onclick="fn2()" id="btn2"> Register </button>
+</body>

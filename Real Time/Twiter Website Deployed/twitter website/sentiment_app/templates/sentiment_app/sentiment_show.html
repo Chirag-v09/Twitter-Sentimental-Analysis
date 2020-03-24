@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<h1> Sentimental Analysis </h1>
+<h2> How people are reacting on "{{ keyword }}" by analyzing {{ terms }} tweets. </h2>
+<h3><strong>"General Report:- "</strong></h3>
+{% if polarity == 0.0 %}
+    <h3> Neutral </h3>
+{% elif 0 < polarity <= 0.3 %}
+    <h3> Weakly Positive </h3>
+{% elif 0.3 < polarity <= 0.6 %}
+    <h3> Positive </h3>
+{% elif 0.6 < polarity <= 1 %}
+    <h3> Strongly Positive </h3>
+{% elif -0.3 < polarity <= 0 %}
+    <h3> Weakly Negative </h3>
+{% elif -0.6 < polarity <= -0.3 %}
+    <h3> Negative </h3>
+{% elif -1 < polarity <= -0.6 %}
+    <h3> Strongly Negative </h3>
+{% endif %}
+
+<script type="text/javascript">
+window.onload = function () {
+	var chart = new CanvasJS.Chart("chartContainer",
+	{
+		title:{
+			text: "Sentimental Analysis"
+		},
+		legend: {
+			maxWidth: 350,
+			itemWidth: 120
+		},
+		data: [
+		{
+			type: "pie",
+			showInLegend: true,
+			legendText: "{indexLabel}",
+			dataPoints: [
+				{ y: parseFloat("{{neutral}}"), indexLabel: "Neutral" },
+				{ y: parseFloat("{{wpositive}}"), indexLabel: "Weakly Positive" },
+				{ y: parseFloat("{{positive}}"), indexLabel: "Positive" },
+				{ y: parseFloat("{{spositive}}"), indexLabel: "Strongly Positive"},
+				{ y: parseFloat("{{wnegative}}"), indexLabel: "Weakly Negative" },
+				{ y: parseFloat("{{negative}}"), indexLabel: "Negative"},
+				{ y: parseFloat("{{snegative}}"), indexLabel: "Strongly negative"}
+			]
+		}
+		]
+	});
+	chart.render();
+}
+</script>
+<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</head>
+<body>
+<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+</body>
+
+
+<br>
+<h4>Detailed Report: </h4>
+<h4>* {{positive}}% people thought it was positive</h4>
+<h4>* {{wpositive}}% people thought it was weakly positive</h4>
+<h4>* {{spositive}}% people thought it was strong positive</h4>
+<h4>* {{negative}}% people thought it was negative</h4>
+<h4>* {{wnegative}}% people thought it was weakly negative</h4>
+<h4>* {{snegative}}% people thought it was strongly negative</h4>
+<h4>* {{neutral}}% people thought it was neutral</h4>
+
+<head>
+    <script type="text/javascript">
+        function fn1()
+        {
+            url = "/sentiment"
+            location.replace(url)
+        }
+
+    </script>
+</head>
+<body>
+
+<br>
+<button onclick="fn1()" id="btn1"> Home </button>
+
+</body>

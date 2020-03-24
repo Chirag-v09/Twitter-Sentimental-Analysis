@@ -1,0 +1,36 @@
+<head>
+    <h1> Registration Page!</h1>
+    <h2> Enter Details:- </h2>
+
+    <script type="text/javascript">
+        function fn1()
+        {
+            var str1 = document.getElementById("text1").value;
+            var str2 = document.getElementById("text2").value;
+            url = "/register/"
+            url = url.concat(str1)
+            url = url.concat("/")
+            url = url.concat(str2)
+            // document.write(url)
+            location.replace(url)
+        }
+
+        function fn2()
+        {
+            url = "/"
+            location.replace(url)
+        }
+    </script>
+
+</head>
+<body>
+
+<input id="text1" placeholder="Enter new User Id here">
+<br>
+<br>
+<input id="text2" placeholder="Enter Password here">
+<br>
+<br>
+<button onclick="fn1()" id="btn1"> Submit </button><br><br>
+<button onclick="fn2()" id="btn2"> Go Back To Login Page </button>
+</body>
