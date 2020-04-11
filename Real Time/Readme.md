@@ -10,5 +10,7 @@ analysis on the keyword you have seaarched on the recent twitter tweets.
 Below are some snips of the project in working:
 
 <img src="Login_page.JPG" width=50% height=50%>
+##
 <img src="Enter_details.JPG" width=50% height=50%>
+##
 <img src="main_snip.JPG" width=50% height=50%>
